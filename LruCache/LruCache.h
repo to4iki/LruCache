@@ -3,7 +3,7 @@
 //  LruCache
 //
 //  Created by to4iki on 2015/09/05.
-//  Copyright (c) 2015年 to4iki. All rights reserved.
+//  Copyright (c) 2015 to4iki. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

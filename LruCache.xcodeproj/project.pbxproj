@@ -10,6 +10,8 @@
 		1E4F18D41B9AC09E0053C13A /* LruCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E4F18D31B9AC09E0053C13A /* LruCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E4F18DA1B9AC09E0053C13A /* LruCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4F18CE1B9AC09E0053C13A /* LruCache.framework */; };
 		1E4F18E11B9AC09E0053C13A /* LruCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4F18E01B9AC09E0053C13A /* LruCacheTests.swift */; };
+		1EA2E9281B9C01D000D2D377 /* LinkedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA2E9271B9C01D000D2D377 /* LinkedDictionary.swift */; settings = {ASSET_TAGS = (); }; };
+		1EE9DB581B9CA2ED0071699E /* LruCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE9DB571B9CA2ED0071699E /* LruCache.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		1E4F18D91B9AC09E0053C13A /* LruCacheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LruCacheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4F18DF1B9AC09E0053C13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E4F18E01B9AC09E0053C13A /* LruCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LruCacheTests.swift; sourceTree = "<group>"; };
+		1EA2E9271B9C01D000D2D377 /* LinkedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedDictionary.swift; sourceTree = "<group>"; };
+		1EE9DB571B9CA2ED0071699E /* LruCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LruCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +75,9 @@
 		1E4F18D01B9AC09E0053C13A /* LruCache */ = {
 			isa = PBXGroup;
 			children = (
+				1EE9DB571B9CA2ED0071699E /* LruCache.swift */,
 				1E4F18D31B9AC09E0053C13A /* LruCache.h */,
+				1EA2E9271B9C01D000D2D377 /* LinkedDictionary.swift */,
 				1E4F18D11B9AC09E0053C13A /* Supporting Files */,
 			);
 			path = LruCache;
@@ -158,6 +164,8 @@
 		1E4F18C51B9AC09E0053C13A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = to4iki;
 				TargetAttributes = {
@@ -209,6 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EE9DB581B9CA2ED0071699E /* LruCache.swift in Sources */,
+				1EA2E9281B9C01D000D2D377 /* LinkedDictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +333,7 @@
 		1E4F18E51B9AC09E0053C13A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,12 +343,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1E4F18E61B9AC09E0053C13A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -399,6 +412,7 @@
 				1E4F18E61B9AC09E0053C13A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E4F18E71B9AC09E0053C13A /* Build configuration list for PBXNativeTarget "LruCacheTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +421,7 @@
 				1E4F18E91B9AC09E0053C13A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
