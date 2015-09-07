@@ -8,22 +8,28 @@
 
 import Foundation
 
-public struct LruCache<K: Hashable, V>: Equatable {
+public struct LruCache<K: Hashable, V> {
     
     public let capacity: Int
+    
     private var length = 0
-    private lazy var hashTable: Dictionary<K, Node<K, V>> = Dictionary(minimumCapacity: self.capacity)
+    private lazy var hashTable: [K: Node<K, V>] = Dictionary(minimumCapacity: self.capacity)
     private lazy var queue: LinkedDictionary<K, V> = LinkedDictionary()
     
     public init(capacity: Int) {
         // TODO: 10 limit
         self.capacity = capacity
     }
+}
+
+// MARK: - Data Operation
+
+extension LruCache {
     
     public subscript (key: K) -> V? {
         mutating get {
             if let node = hashTable[key] {
-                updateQueue(node)
+                update(node)
                 return node.value
             } else {
                 return nil
@@ -33,27 +39,23 @@ public struct LruCache<K: Hashable, V>: Equatable {
         set(value) {
             if let node = hashTable[key] {
                 node.value = value
-                updateQueue(node)
+                update(node)
                 
             } else {
                 let node = Node(key: key, value: value)
-                
                 if self.length < capacity {
                     save(node)
                     length++
-                    
-                } else  {
-                    hashTable.removeValueForKey(self.queue.tail!.key)
-                    queue.tail = queue.tail?.previous
-                    
-                    if let node = self.queue.tail {
-                        node.next = nil
-                    }
-                    
+                } else {
+                    remove()
                     save(node)
                 }
             }
         }
+    }
+    
+    public mutating func size() -> Int {
+        return hashTable.count
     }
     
     private mutating func save(node: Node<K, V>) {
@@ -61,12 +63,20 @@ public struct LruCache<K: Hashable, V>: Equatable {
         hashTable[node.key] = node
     }
     
-    private mutating func updateQueue(node: Node<K, V>) {
+    private mutating func update(node: Node<K, V>) {
         queue.remove(node)
         queue.unshift(node)
     }
+    
+    private mutating func remove() {
+        guard let last = queue.tail else {
+            return
+        }
+        hashTable.removeValueForKey(last.key)
+        queue.tail = last.previous
+        queue.tail?.next = nil
+    }
 }
-
 
 // MARK: - CustomStringConvertible
 
@@ -74,10 +84,4 @@ extension LruCache {
     public mutating func display() -> String {
         return "LruCache(\(length)): \n\(queue)"
     }
-}
-
-// MARK: - Equatable
-
-public func == <K: Hashable, V>(lhs: LruCache<K, V>, rhs: LruCache<K, V>) -> Bool {
-    return true
 }

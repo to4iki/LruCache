@@ -9,6 +9,7 @@
 import XCTest
 import LruCache
 
+// http://qiita.com/shirochan/items/10271912289dc563cc36
 class LruCacheTests: XCTestCase {
     
     override func setUp() {
@@ -19,13 +20,14 @@ class LruCacheTests: XCTestCase {
         super.tearDown()
     }
     
-    func testPut() {
+    func testPut1() {
         var cache: LruCache<String, String> = LruCache(capacity: 2)
         cache["a"] = "first"
         cache["b"] = "second"
         cache["c"] = "third"
         
-        XCTAssert(cache["a"] == nil)
+        XCTAssert(cache.size() == 2)
+        XCTAssertNil(cache["a"])
     }
     
     func testPut2() {
@@ -33,35 +35,22 @@ class LruCacheTests: XCTestCase {
         cache["a"] = "first"
         cache["b"] = "second"
 
-        let a = cache["a"]
+        let _ = cache["a"]
         
         cache["c"] = "third"
-        
-        XCTAssert(cache["b"] == nil)
+
+        XCTAssert(cache.size() == 2)
+        XCTAssertNil(cache["b"])
     }
     
-//    func testEx3() {
-//        var cache: LruCache<String, Float> = LruCache(capacity: 7)
-//        cache["AAPL"] = 114.63
-//        cache["GOOG"] = 533.75
-//        cache["YHOO"] = 50.67
-//        cache["TWTR"] = 38.91
-//        cache["BABA"] = 109.89
-//        cache["YELP"] = 55.17
-//        cache["BABA"] = 109.80
-//        cache["TSLA"] = 231.43
-//        cache["AAPL"] = 113.41
-//        cache["GOOG"] = 533.60
-//        cache["AAPL"] = 113.01
-//        
-//        if let item = cache["AAPL"] {
-//            print("Key: AAPL Value: \(item)")
-//        } else {
-//            print("Item not found.")
-//        }
-//        
-//         print(cache)
-//    }
+    func testSize() {
+        var cache: LruCache<String, String> = LruCache(capacity: 2)
+        XCTAssert(cache.size() == 0)
+        
+        cache["a"] = "first"
+        
+        XCTAssert(cache.size() == 1)
+    }
     
     func testPerformanceExample() {
         self.measureBlock() {
