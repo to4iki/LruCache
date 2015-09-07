@@ -8,16 +8,35 @@
 
 import Foundation
 
+public enum LruCacheError: ErrorType {
+    case CapacityExceedingError(Int)
+}
+
+/**
+*  LRU Cache
+*  max 10 size
+*/
 public struct LruCache<K: Hashable, V> {
     
+    typealias Hash = Dictionary<K, Node<K, V>>
+    
     public let capacity: Int
-    
     private var length = 0
-    private lazy var hashTable: [K: Node<K, V>] = Dictionary(minimumCapacity: self.capacity)
-    private lazy var queue: LinkedDictionary<K, V> = LinkedDictionary()
+    private var queue: LinkedDictionary<K, V> = LinkedDictionary()
+    private lazy var hashTable: Hash = Hash(minimumCapacity: self.capacity)
     
-    public init(capacity: Int) {
-        // TODO: 10 limit
+    public static var maxCapacity: Int {
+        return 10
+    }
+    
+    public init() {
+        self.capacity = LruCache.maxCapacity
+    }
+    
+    public init(capacity: Int) throws {
+        if capacity > LruCache.maxCapacity {
+            throw LruCacheError.CapacityExceedingError(capacity)
+        }
         self.capacity = capacity
     }
 }
@@ -26,7 +45,7 @@ public struct LruCache<K: Hashable, V> {
 
 extension LruCache {
     
-    public subscript (key: K) -> V? {
+    public subscript(key: K) -> V? {
         mutating get {
             if let node = hashTable[key] {
                 update(node)
@@ -36,13 +55,12 @@ extension LruCache {
             }
         }
         
-        set(value) {
+        set {
             if let node = hashTable[key] {
-                node.value = value
-                update(node)
-                
+                node.value = newValue
+                update(node) 
             } else {
-                let node = Node(key: key, value: value)
+                let node = Node(key: key, value: newValue)
                 if self.length < capacity {
                     save(node)
                     length++
@@ -56,6 +74,11 @@ extension LruCache {
     
     public mutating func size() -> Int {
         return hashTable.count
+    }
+    
+    public mutating func removeAll() {
+        hashTable.removeAll()
+        queue.removeAll()
     }
     
     private mutating func save(node: Node<K, V>) {
@@ -80,8 +103,8 @@ extension LruCache {
 
 // MARK: - CustomStringConvertible
 
-extension LruCache {
-    public mutating func display() -> String {
+extension LruCache: CustomStringConvertible {
+    public var description: String {
         return "LruCache(\(length)): \n\(queue)"
     }
 }

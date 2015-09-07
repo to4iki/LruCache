@@ -20,36 +20,72 @@ class LruCacheTests: XCTestCase {
         super.tearDown()
     }
     
+    func testDescription() {
+        var cache: LruCache<String, Int> = try! LruCache(capacity: 5)
+        cache["a"] = 1
+        cache["b"] = 2
+        cache["c"] = 3
+        cache["d"] = 4
+        cache["e"] = 5
+        cache["f"] = 6
+        cache["a"] = 1
+        cache["b"] = 2
+        cache["a"] = 1
+        
+        print("cache: \(cache)")
+    } 
+    
     func testPut1() {
-        var cache: LruCache<String, String> = LruCache(capacity: 2)
-        cache["a"] = "first"
-        cache["b"] = "second"
-        cache["c"] = "third"
+        var cache: LruCache<String, Int> = try! LruCache(capacity: 2)
+        cache["a"] = 1
+        cache["b"] = 2
+        cache["c"] = 3
         
         XCTAssert(cache.size() == 2)
         XCTAssertNil(cache["a"])
     }
     
     func testPut2() {
-        var cache: LruCache<String, String> = LruCache(capacity: 2)
-        cache["a"] = "first"
-        cache["b"] = "second"
-
+        var cache: LruCache<String, Int> = try! LruCache(capacity: 2)
+        cache["a"] = 1
+        cache["b"] = 2
+        
         let _ = cache["a"]
         
-        cache["c"] = "third"
-
+        cache["c"] = 3
+        
         XCTAssert(cache.size() == 2)
         XCTAssertNil(cache["b"])
     }
     
+    func testCapacityExceeding() {
+        let capacity = LruCache<String, Int>.maxCapacity + 1
+        do {
+            let _ = try LruCache<String, Int>(capacity: capacity)
+        } catch LruCacheError.CapacityExceedingError(let n) {
+            XCTAssert(n == capacity)
+        } catch {
+        }
+    }
+    
     func testSize() {
-        var cache: LruCache<String, String> = LruCache(capacity: 2)
+        var cache: LruCache<String, Int> = LruCache()
         XCTAssert(cache.size() == 0)
         
-        cache["a"] = "first"
+        cache["a"] = 1
         
         XCTAssert(cache.size() == 1)
+    }
+    
+    func testRemoveAll() {
+        var cache: LruCache<String, Int> = LruCache()
+        cache["a"] = 1
+        cache["b"] = 2
+        
+        XCTAssert(cache.size() == 2)
+        
+        cache.removeAll()
+        XCTAssert(cache.size() == 0)
     }
     
     func testPerformanceExample() {

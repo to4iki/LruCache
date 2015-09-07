@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E2EF7101B9DE9A70026DFDF /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EF70F1B9DE9A70026DFDF /* Node.swift */; settings = {ASSET_TAGS = (); }; };
 		1E4F18D41B9AC09E0053C13A /* LruCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E4F18D31B9AC09E0053C13A /* LruCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E4F18DA1B9AC09E0053C13A /* LruCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4F18CE1B9AC09E0053C13A /* LruCache.framework */; };
 		1E4F18E11B9AC09E0053C13A /* LruCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4F18E01B9AC09E0053C13A /* LruCacheTests.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E2EF70F1B9DE9A70026DFDF /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		1E4F18CE1B9AC09E0053C13A /* LruCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LruCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4F18D21B9AC09E0053C13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E4F18D31B9AC09E0053C13A /* LruCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LruCache.h; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				1EE9DB571B9CA2ED0071699E /* LruCache.swift */,
 				1E4F18D31B9AC09E0053C13A /* LruCache.h */,
 				1EA2E9271B9C01D000D2D377 /* LinkedDictionary.swift */,
+				1E2EF70F1B9DE9A70026DFDF /* Node.swift */,
 				1E4F18D11B9AC09E0053C13A /* Supporting Files */,
 			);
 			path = LruCache;
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2EF7101B9DE9A70026DFDF /* Node.swift in Sources */,
 				1EE9DB581B9CA2ED0071699E /* LruCache.swift in Sources */,
 				1EA2E9281B9C01D000D2D377 /* LinkedDictionary.swift in Sources */,
 			);

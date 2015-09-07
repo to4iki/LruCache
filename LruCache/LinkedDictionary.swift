@@ -8,25 +8,20 @@
 
 import Foundation
 
-class Node<K: Hashable, V> {
-    
-    var key: K
-    var value: V?
-    var previous: Node?
-    var next: Node?
-    
-    init(key: K, value: V?) {
-        self.key = key
-        self.value = value
-    }
-}
-
+/**
+*  LinkedDictionary
+*/
 struct LinkedDictionary<K: Hashable, V> {
     
-    var head: Node<K, V>? = nil
-    var tail: Node<K, V>? = nil
+    private(set) var head: Node<K, V>?
+    var tail: Node<K, V>?
     
     init() {}
+}
+
+// MARK: - Data Operation
+
+extension LinkedDictionary {
     
     mutating func unshift(node: Node<K, V>) {
         if head == nil  {
@@ -53,19 +48,24 @@ struct LinkedDictionary<K: Hashable, V> {
             tail = node.previous
         }
     }
+    
+    mutating func removeAll() {
+        head = nil
+        tail = nil
+    }
 }
 
-/// MARK: - CustomStringConvertible
+// MARK: - CustomStringConvertible
 
 extension LinkedDictionary: CustomStringConvertible {
     var description: String {
-        var s = ""
+        var str = ""
         var current = head
         
         while let node = current {
-            s += "key:\(node.key), value:\(node.value) \n"
+            str += "\(node) \n"
             current = node.next
         }
-        return s
+        return str
     }
 }
