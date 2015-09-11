@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E2EF7101B9DE9A70026DFDF /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EF70F1B9DE9A70026DFDF /* Node.swift */; settings = {ASSET_TAGS = (); }; };
+		1E3BF3A71BA402F500686FA7 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3BF3A61BA402F500686FA7 /* Factory.swift */; settings = {ASSET_TAGS = (); }; };
 		1E4F18D41B9AC09E0053C13A /* LruCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E4F18D31B9AC09E0053C13A /* LruCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E4F18DA1B9AC09E0053C13A /* LruCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4F18CE1B9AC09E0053C13A /* LruCache.framework */; };
 		1E4F18E11B9AC09E0053C13A /* LruCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4F18E01B9AC09E0053C13A /* LruCacheTests.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		1E2EF70F1B9DE9A70026DFDF /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		1E3BF3A61BA402F500686FA7 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		1E4F18CE1B9AC09E0053C13A /* LruCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LruCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4F18D21B9AC09E0053C13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E4F18D31B9AC09E0053C13A /* LruCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LruCache.h; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E3BF3A51BA402F500686FA7 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				1E3BF3A61BA402F500686FA7 /* Factory.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
 		1E4F18C41B9AC09E0053C13A = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				1E4F18E01B9AC09E0053C13A /* LruCacheTests.swift */,
+				1E3BF3A51BA402F500686FA7 /* helper */,
 				1E4F18DE1B9AC09E0053C13A /* Supporting Files */,
 			);
 			path = LruCacheTests;
@@ -230,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E3BF3A71BA402F500686FA7 /* Factory.swift in Sources */,
 				1E4F18E11B9AC09E0053C13A /* LruCacheTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

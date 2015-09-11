@@ -108,6 +108,8 @@ extension LruCache: CustomStringConvertible {
     }
 }
 
+// MARK: - Equatable
+
 public func == <K: Hashable, V>(lhs: LruCache<K, V>, rhs: LruCache<K, V>) -> Bool {
     return lhs.capacity == rhs.capacity &&
         lhs.length == rhs.length &&

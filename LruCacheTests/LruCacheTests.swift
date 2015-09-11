@@ -9,8 +9,6 @@
 import XCTest
 import LruCache
 
-// http://qiita.com/shirochan/items/10271912289dc563cc36
-// https://github.com/spray/spray/blob/master/spray-caching/src/main/scala/spray/caching/LruCache.scala
 class LruCacheTests: XCTestCase {
     
     override func setUp() {
@@ -20,21 +18,6 @@ class LruCacheTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-    
-    func testDescription() {
-        var cache: LruCache<String, Int> = try! LruCache(capacity: 5)
-        cache["a"] = 1
-        cache["b"] = 2
-        cache["c"] = 3
-        cache["d"] = 4
-        cache["e"] = 5
-        cache["f"] = 6
-        cache["a"] = 1
-        cache["b"] = 2
-        cache["a"] = 1
-        
-        print("cache: \(cache)")
-    } 
     
     func testPut1() {
         var cache: LruCache<String, Int> = try! LruCache(capacity: 2)
@@ -51,7 +34,7 @@ class LruCacheTests: XCTestCase {
         cache["a"] = 1
         cache["b"] = 2
         
-        let _ = cache["a"]
+        _ = cache["a"]
         
         cache["c"] = 3
         
@@ -103,8 +86,32 @@ class LruCacheTests: XCTestCase {
         XCTAssertNotEqual(cache1, cache2)
     }
     
-    func testPerformanceExample() {
+    // MARK: Performance
+    
+    func testCacheSetPerformanceWithMeasureBlock() {
+        var cache: LruCache<String, Int> = LruCache() 
+        
         self.measureBlock() {
+            Factory.dictionary().forEach { cache[$0.0] = $0.1 }
+        }
+    }
+    
+    func testCacheGetPerformanceWithMeasureBlock() {
+        var cache: LruCache<String, Int> = LruCache()
+        Factory.dictionary().forEach { cache[$0.0] = $0.1 }
+        
+        self.measureBlock() {
+            _ = cache["a"]
+            _ = cache["b"]
+            _ = cache["c"]
+            _ = cache["d"]
+            _ = cache["e"]
+            _ = cache["f"]
+            _ = cache["g"]
+            _ = cache["h"]
+            _ = cache["i"]
+            _ = cache["j"]
+            _ = cache["k"]
         }
     }
 }
