@@ -10,6 +10,7 @@ import XCTest
 import LruCache
 
 // http://qiita.com/shirochan/items/10271912289dc563cc36
+// https://github.com/spray/spray/blob/master/spray-caching/src/main/scala/spray/caching/LruCache.scala
 class LruCacheTests: XCTestCase {
     
     override func setUp() {
@@ -86,6 +87,20 @@ class LruCacheTests: XCTestCase {
         
         cache.removeAll()
         XCTAssert(cache.size() == 0)
+    }
+    
+    func testEqutable() {
+        var cache1: LruCache<String, Int> = try! LruCache(capacity: 2)
+        cache1["a"] = 1
+        
+        var cache2: LruCache<String, Int> = try! LruCache(capacity: 2)
+        cache2["a"] = 1
+        
+        XCTAssertEqual(cache1, cache2)
+        
+        cache1["b"] = 2
+        
+        XCTAssertNotEqual(cache1, cache2)
     }
     
     func testPerformanceExample() {

@@ -11,7 +11,7 @@ import Foundation
 /**
 *  Node
 */
-class Node<K: Hashable, V> {
+class Node<K: Hashable, V>: Equatable {
     
     let key: K
     var value: V?
@@ -30,4 +30,11 @@ extension Node: CustomStringConvertible {
     var description: String {
         return "Node(key:\(key), value:\(value))"
     }
+}
+
+
+// MARK: - Equatable
+
+func == <K: Hashable, V>(lhs: Node<K, V>, rhs: Node<K, V>) -> Bool {
+    return lhs.key == rhs.key && lhs.previous == rhs.previous && rhs.next == rhs.next
 }

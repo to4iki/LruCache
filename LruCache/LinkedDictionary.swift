@@ -11,7 +11,7 @@ import Foundation
 /**
 *  LinkedDictionary
 */
-struct LinkedDictionary<K: Hashable, V> {
+struct LinkedDictionary<K: Hashable, V>: Equatable {
     
     private(set) var head: Node<K, V>?
     var tail: Node<K, V>?
@@ -68,4 +68,10 @@ extension LinkedDictionary: CustomStringConvertible {
         }
         return str
     }
+}
+
+// MARK: - Equatable
+
+func == <K: Hashable, V>(lhs: LinkedDictionary<K, V>, rhs: LinkedDictionary<K, V>) -> Bool {
+    return lhs.head == rhs.head && lhs.tail == rhs.tail
 }
