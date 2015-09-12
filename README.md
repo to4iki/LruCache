@@ -1,16 +1,39 @@
 LruCache
-=======
+========
 
+[![Carthage compatible][carthage-image]][carthage-url]
 [![License][license-image]][license-url]
 
 Least Recently Used.  
-build a thread-safe, in-memory LRU cache with a maximum item count of 10.
+in-memory LRU cache with a maximum item count of 10.
 
-1. Should perform well as a web image cache, (avg ~1MB)
-2. Should be well tested
-3. Simplicity of API
-4. Overall performance
-5. Thread safety
+## Requirements
+
+- Swift 2 beta 6
+- iOS 8.0 or later
+
+## Usage
+
+```swift
+var cache: LruCache<String, Int> = LruCache()
+cache["a"] = 1
+cache["b"] = 2
+cache["c"] = 3
+
+let v = cache["a"] // Optional(1)
+```
+
+## Installation
+
+### [Carthage](https://github.com/Carthage/Carthage)
+Add the following to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
+
+```
+github "to4iki/LruCache"
+```
+
+Run `carthage update` and follow the steps as described in Carthage's [README](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
+
 
 ## Author
 
@@ -19,6 +42,9 @@ build a thread-safe, in-memory LRU cache with a maximum item count of 10.
 ## Licence
 
 [MIT](http://to4iki.mit-license.org/)
+
+[carthage-url]: https://github.com/Carthage/Carthage
+[carthage-image]: https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat
 
 [license-url]: http://to4iki.mit-license.org/
 [license-image]: http://img.shields.io/badge/license-MIT-brightgreen.svg
