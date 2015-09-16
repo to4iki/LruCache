@@ -34,7 +34,7 @@ class LruCacheTests: XCTestCase {
         cache["a"] = 1
         cache["b"] = 2
         
-        _ = cache["a"]
+        XCTAssertEqual(cache["a"], 1)
         
         cache["c"] = 3
         
@@ -89,29 +89,24 @@ class LruCacheTests: XCTestCase {
     // MARK: Performance
     
     func testCacheSetPerformanceWithMeasureBlock() {
-        var cache: LruCache<String, Int> = LruCache() 
+        var cache: LruCache<String, UIImage> = LruCache()
+        let n = 10
         
         self.measureBlock() {
-            Factory.dictionary().forEach { cache[$0.0] = $0.1 }
+            Factory.dictionary(n).forEach { cache[$0.0] = $0.1 }
         }
     }
     
     func testCacheGetPerformanceWithMeasureBlock() {
-        var cache: LruCache<String, Int> = LruCache()
-        Factory.dictionary().forEach { cache[$0.0] = $0.1 }
+        var cache: LruCache<String, UIImage> = LruCache()
+        let n = 30
+        
+        Factory.dictionary(n).forEach { cache[$0.0] = $0.1 }
         
         self.measureBlock() {
-            _ = cache["a"]
-            _ = cache["b"]
-            _ = cache["c"]
-            _ = cache["d"]
-            _ = cache["e"]
-            _ = cache["f"]
-            _ = cache["g"]
-            _ = cache["h"]
-            _ = cache["i"]
-            _ = cache["j"]
-            _ = cache["k"]
+            for n in 1...n {
+                _ = cache[String(n)]
+            }
         }
     }
 }

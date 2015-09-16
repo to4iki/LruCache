@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0AA4B1D26D39539E055342EFF61A054B2868F165",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E30DD64B1914BF85BEEC529B9B11D6F8F2F7EBCE" : 0,
+    "0AA4B1D26D39539E055342EFF61A054B2868F165" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6E0AF323-76D8-4294-B95F-89DDAC3AF3A4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E30DD64B1914BF85BEEC529B9B11D6F8F2F7EBCE" : "..\/..\/..\/Develop\/app\/reader2-ios",
+    "0AA4B1D26D39539E055342EFF61A054B2868F165" : "LruCache\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LruCache",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LruCache.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/to4iki\/LruCache",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0AA4B1D26D39539E055342EFF61A054B2868F165"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/tool.devsep.com\/stash\/scm\/ganma\/reader2-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E30DD64B1914BF85BEEC529B9B11D6F8F2F7EBCE"
+    }
+  ]
+}
