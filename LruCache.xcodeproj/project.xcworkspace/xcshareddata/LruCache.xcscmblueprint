@@ -4,11 +4,13 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0496B5D5104C5A98F9A896C240686F83A5E7D57F" : 0,
     "E30DD64B1914BF85BEEC529B9B11D6F8F2F7EBCE" : 0,
     "0AA4B1D26D39539E055342EFF61A054B2868F165" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6E0AF323-76D8-4294-B95F-89DDAC3AF3A4",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0496B5D5104C5A98F9A896C240686F83A5E7D57F" : "..\/..\/bitbucket.org\/to4iki\/imagefetcher",
     "E30DD64B1914BF85BEEC529B9B11D6F8F2F7EBCE" : "..\/..\/..\/Develop\/app\/reader2-ios",
     "0AA4B1D26D39539E055342EFF61A054B2868F165" : "LruCache\/"
   },
@@ -16,6 +18,11 @@
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LruCache.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/to4iki\/imagefetcher",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0496B5D5104C5A98F9A896C240686F83A5E7D57F"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/to4iki\/LruCache",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
